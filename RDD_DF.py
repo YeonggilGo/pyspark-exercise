@@ -1,3 +1,6 @@
+import math
+
+from pyspark.sql import types
 from pyspark.sql import SparkSession
 
 session = SparkSession.builder.getOrCreate()
@@ -22,3 +25,16 @@ rdd = session.sparkContext.parallelize([1, 2, 3])
 rdd = rdd.map(lambda x: x * 100)
 print(rdd.collect())
 
+
+# RDD Mapping
+
+
+def take_log_in_all_columns(row: types.Row):
+    old_row = row.asDict()
+    new_row = {f'log({column_name})': math.log(value)
+               for column_name, value in old_row.items()}
+    return types.Row(**new_row)
+
+
+logarithmic_df = df.rdd.map(take_log_in_all_columns).toDF()
+logarithmic_df.show()
