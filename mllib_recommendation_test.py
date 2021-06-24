@@ -22,5 +22,5 @@ if __name__ == "__main__":
     print("Mean Squared Error : " + str(MSE))
 
     # Save and load model
-    model.save(sc, "target/tmp/myCollaborativeFilter")
-    sameModel = MatrixFactorizationModel.load(sc, "target/tmp/myCollaborativeFilter")
+    # model.save(sc, "target/tmp/myCollaborativeFilter")
+    # sameModel = MatrixFactorizationModel.load(sc, "target/tmp/myCollaborativeFilter")
