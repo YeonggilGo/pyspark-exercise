@@ -388,4 +388,7 @@ spark-warehouse/
 .history
 .ionide
 
+src
+bin
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,pycharm,python,spark,visualstudiocode
