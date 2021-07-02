@@ -17,7 +17,6 @@ columns = StructType(
 temp_infos = session.read.schema(columns).csv("../src/resources/1800_weather.csv")
 
 min_temps = temp_infos.filter(temp_infos.measure_type == "TMIN")
-min_temps.show()
 geo_min_temp = min_temps.groupBy("geo_id") \
     .min("temperature") \
     .show()
